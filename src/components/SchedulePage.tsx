@@ -1,28 +1,41 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { matches, type Match } from '../data/matches';
 import MatchCard from './MatchCard';
 import { venues } from '../data/venues';
 import { teams } from '../data/teams';
 import './SchedulePage.css';
 
-const openGoogleCalendar = (title: string, date: Date, description: string) => {
-  const formatDate = (d: Date) => d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-  const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatDate(date)}/${formatDate(new Date(date.getTime() + 60 * 60 * 1000))}&details=${encodeURIComponent(description)}`;
-  window.open(url, '_blank');
-};
-
 const SchedulePage: React.FC = () => {
   const today = useMemo(() => new Date(), []);
-  const kickoffDate = new Date('2026-06-11');
-  const ticketDate = new Date('2026-04-01');
-  const knockoutDate = new Date('2026-06-28');
-  const finalDate = new Date('2026-07-19');
+  const kickoffDate = new Date('2026-06-11T20:00:00');
   
-  const daysToKickoff = Math.ceil((kickoffDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-  const daysToTicket = Math.ceil((ticketDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-  const daysToKnockout = Math.ceil((knockoutDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-  const daysToFinal = Math.ceil((finalDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-
+  const [timeLeft, setTimeLeft] = useState<{days: number; hours: number; minutes: number; seconds: number}>(() => {
+    const diff = kickoffDate.getTime() - today.getTime();
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    return { days, hours, minutes, seconds };
+  });
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date();
+      const diff = kickoffDate.getTime() - now.getTime();
+      if (diff <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        clearInterval(timer);
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      setTimeLeft({ days, hours, minutes, seconds });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [kickoffDate]);
+  
   const [selectedCountry, setSelectedCountry] = useState('all');
   const [selectedCity, setSelectedCity] = useState('all');
   const [selectedStage, setSelectedStage] = useState('all');
@@ -72,28 +85,29 @@ const SchedulePage: React.FC = () => {
           <h1>🏆 FIFA World Cup 2026</h1>
           <p className="hero-subtitle">USA · Canada · Mexico · 48 Teams · 104 Matches</p>
           
-          <div className="countdown-ticket-row">
-            <span className="ticket-label">⚠️ Last-Minute Tickets</span>
-            <span className="ticket-number">{daysToTicket > 0 ? daysToTicket : 0}</span>
-            <span className="ticket-unit">days</span>
-            <button className="remind-btn" onClick={() => openGoogleCalendar('FIFA World Cup 2026 - Last-Minute Sales', ticketDate, 'FIFA Last-Minute Sales Phase - Final chance to purchase official tickets! First-come, first-served.\n\nWebsite: https://www.fifa.com/tickets')}>🔔 Set Reminder</button>
-          </div>
-          
-          <div className="countdown-cards">
-            <div className="countdown-card">
-              <div className="card-label">To Kick-off</div>
-              <div className="card-number">{daysToKickoff}</div>
-              <div className="card-unit">days</div>
-            </div>
-            <div className="countdown-card">
-              <div className="card-label">To Knockout</div>
-              <div className="card-number">{daysToKnockout}</div>
-              <div className="card-unit">days</div>
-            </div>
-            <div className="countdown-card">
-              <div className="card-label">To Final</div>
-              <div className="card-number">{daysToFinal}</div>
-              <div className="card-unit">days</div>
+          <div className="hero-countdown">
+            <div className="countdown-label">Opening Ceremony</div>
+            <div className="countdown-date">June 11, 2026</div>
+            <div className="countdown-timer">
+              <div className="countdown-block">
+                <span className="countdown-number">{timeLeft.days}</span>
+                <span className="countdown-unit">Days</span>
+              </div>
+              <div className="countdown-separator">:</div>
+              <div className="countdown-block">
+                <span className="countdown-number">{String(timeLeft.hours).padStart(2, '0')}</span>
+                <span className="countdown-unit">Hours</span>
+              </div>
+              <div className="countdown-separator">:</div>
+              <div className="countdown-block">
+                <span className="countdown-number">{String(timeLeft.minutes).padStart(2, '0')}</span>
+                <span className="countdown-unit">Minutes</span>
+              </div>
+              <div className="countdown-separator">:</div>
+              <div className="countdown-block">
+                <span className="countdown-number">{String(timeLeft.seconds).padStart(2, '0')}</span>
+                <span className="countdown-unit">Seconds</span>
+              </div>
             </div>
           </div>
         </div>

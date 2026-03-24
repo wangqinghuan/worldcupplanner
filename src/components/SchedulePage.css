@@ -39,208 +39,89 @@
 .hero-subtitle {
   font-size: 1.25rem;
   opacity: 0.9;
-  margin: 0 0 40px 0;
+  margin: 0 0 48px 0;
 }
 
-.countdown-ticket-row {
+.hero-countdown {
+  background: linear-gradient(135deg, rgba(30, 58, 95, 0.6) 0%, rgba(10, 22, 40, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 40px 60px;
+  display: inline-block;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 80px rgba(251, 191, 36, 0.1);
+}
+
+.countdown-label {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  opacity: 0.8;
+  margin-bottom: 8px;
+  color: #fbbf24;
+}
+
+.countdown-date {
+  font-size: 1.4rem;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+
+.countdown-timer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 24px;
-  padding: 16px 24px;
-  background: rgba(220, 38, 38, 0.2);
-  border: 1px solid rgba(220, 38, 38, 0.4);
-  border-radius: 40px;
+  gap: 8px;
 }
 
-.ticket-label {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.ticket-number {
-  font-size: 2rem;
-  font-weight: 900;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.ticket-unit {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-right: 8px;
-}
-
-.countdown-cards {
+.countdown-block {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
 }
 
-.countdown-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  padding: 24px 32px;
-  text-align: center;
-  min-width: 140px;
-}
-
-.card-label {
-  font-size: 1rem;
-  opacity: 0.9;
-  margin-bottom: 8px;
-}
-
-.card-number {
-  font-size: 3.5rem;
+.countdown-number {
+  font-size: 4.5rem;
   font-weight: 900;
   line-height: 1;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fbbf24 50%, #f59e0b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 0 40px rgba(251, 191, 36, 0.5);
+  font-variant-numeric: tabular-nums;
 }
 
-.card-unit {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-top: 4px;
-  opacity: 0.8;
-}
-
-.remind-btn {
-  display: inline-block;
-  padding: 8px 16px;
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-  color: white;
-  border: none;
-  border-radius: 30px;
+.countdown-unit {
   font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.7;
+  margin-top: 8px;
 }
 
-.remind-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4);
-}
-
-.schedule-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px;
-  background: #f8fafc;
-}
-
-.filter-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 12px;
+.countdown-separator {
+  font-size: 3.5rem;
+  font-weight: 300;
+  opacity: 0.6;
   margin-bottom: 24px;
 }
 
-.filter-row input {
-  grid-column: 1 / -1;
-  width: 100%;
-  padding: 14px 20px;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  background-color: #f9fafb;
-  font-size: 1rem;
-  font-weight: 500;
-  box-sizing: border-box;
-}
-
-.filter-row input:focus {
-  outline: none;
-  background-color: white;
-  border-color: #002D72;
-  box-shadow: 0 0 0 4px rgba(0, 45, 114, 0.1);
-}
-
-.filter-row select {
-  padding: 12px 16px;
-  border: none;
-  border-radius: 8px;
-  background-color: #f3f4f6;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #374151;
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-}
-
-.results-count {
-  color: #64748b;
-  margin-bottom: 16px;
-}
-
-.no-match {
-  text-align: center;
-  color: #64748b;
-  padding: 24px;
-}
-
-.match-section {
-  margin-bottom: 48px;
-}
-
-.match-section h2 {
-  font-size: 1.5rem;
-  color: #1e293b;
-  margin: 0 0 8px 0;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #1e3a5f;
-}
-
-.section-desc {
-  color: #64748b;
-  margin: 0 0 20px 0;
-  font-size: 0.95rem;
-}
-
-.date-group {
-  margin-bottom: 24px;
-}
-
-.date-header {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  padding: 12px 16px;
-  background: white;
-  border-radius: 8px 8px 0 0;
-  border-bottom: 2px solid #1e3a5f;
-}
-
-.date-day {
-  font-weight: 600;
-  color: #1e3a5f;
-}
-
-.date-full {
-  font-size: 0.9rem;
-  color: #64748b;
-}
-
-.matches-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  background: white;
-  padding: 16px;
-  border-radius: 0 0 8px 8px;
+@media (max-width: 768px) {
+  .hero-countdown {
+    padding: 24px 32px;
+  }
+  .countdown-number {
+    font-size: 2.5rem;
+  }
+  .countdown-separator {
+    font-size: 2rem;
+  }
+  .countdown-block {
+    min-width: 50px;
+  }
 }
 
 @media (max-width: 768px) {
