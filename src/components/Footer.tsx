@@ -47,8 +47,8 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="footer-bottom">
-            <p>&copy; 2026 World Cup 2026 Planner. All rights reserved. Auto-deploy test</p>
+<div className="footer-bottom">
+          <p>&copy; 2026 World Cup 2026 Planner. All rights reserved. Questions? Contact us below.</p>
           <div className="footer-social">
             <a href="mailto:1095193290@qq.com" aria-label="Email">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
