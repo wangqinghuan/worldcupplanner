@@ -130,6 +130,7 @@ const HomePage: React.FC = () => {
             <div className="info-card">
               <h3>🎟️ Tickets</h3>
               <p>Over 500 million ticket requests for just 7 million available seats. All official lottery phases are now closed.</p>
+              <a href="https://www.fifa.com/tickets" target="_blank" rel="noopener noreferrer" className="info-link">Buy Tickets →</a>
             </div>
           </div>
         </div>
