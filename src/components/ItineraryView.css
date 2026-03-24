@@ -1,0 +1,778 @@
+.itinerary-view {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--header-height));
+}
+
+.itinerary-header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+  color: white;
+  padding: 24px 32px;
+}
+
+.summary-banner {
+  margin-bottom: 20px;
+}
+
+.summary-banner h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.plans-sidebar {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.plans-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex: 1;
+}
+
+.plan-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 200px;
+  max-width: 280px;
+}
+
+.plan-item.current {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #fbbf24;
+  cursor: pointer;
+}
+
+.plan-item.current:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.other-plans-header {
+  width: 100%;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.plan-time {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: auto;
+}
+
+.saved-plan {
+  opacity: 0.85;
+}
+
+.saved-plan:hover {
+  opacity: 1;
+}
+
+.plan-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.plan-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.plan-badge.current-badge {
+  background: #fbbf24;
+  color: #1e3a5f;
+}
+
+.btn-delete-plan {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.btn-delete-plan:hover {
+  color: #ef4444;
+}
+
+.plan-item-name {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.plan-item-dates {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.plan-item-cities {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-set-current {
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-set-current:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.plans-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.feasibility-banner {
+  border: 2px solid;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.score-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.stats-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 16px 24px;
+  text-align: center;
+  min-width: 120px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+.warnings-bar {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.warnings-bar h4 {
+  margin: 0 0 12px 0;
+  font-size: 1rem;
+  color: #fecaca;
+}
+
+.warning-item {
+  font-size: 0.9rem;
+  color: #fecaca;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.warning-item:last-child {
+  margin-bottom: 0;
+}
+
+.summary-banner {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.summary-banner h2 {
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+}
+
+.ai-plan-section {
+  background: white;
+  padding: 24px;
+  margin: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.ai-plan-section h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 16px 0;
+}
+
+.ai-day-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid #1e3a5f;
+}
+
+.ai-day-card:last-child {
+  margin-bottom: 0;
+}
+
+.ai-day-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.ai-day-num {
+  background: #1e3a5f;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.ai-day-date {
+  font-weight: 600;
+  color: #334155;
+}
+
+.ai-day-city {
+  color: #059669;
+  font-weight: 500;
+}
+
+.ai-day-transport {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.ai-day-activities {
+  margin-bottom: 8px;
+}
+
+.activity-item {
+  color: #475569;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.activity-item:last-child {
+  margin-bottom: 0;
+}
+
+.activity-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px dashed #3b82f6;
+  transition: all 0.2s;
+}
+
+.activity-link:hover {
+  color: #2563eb;
+  border-bottom-style: solid;
+}
+
+.ai-day-matches {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #fef2f2;
+  color: #dc2626;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.generating-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--header-height) - 200px);
+}
+
+.generating-content {
+  text-align: center;
+  padding: 48px;
+}
+
+.generating-content h2 {
+  margin: 24px 0 12px;
+  font-size: 1.5rem;
+  color: #1e293b;
+}
+
+.generating-content p {
+  color: #64748b;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e2e8f0;
+  border-top-color: #1e3a5f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.trip-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.trip-note p {
+  margin: 0;
+}
+
+.itinerary-body {
+  display: flex;
+  flex: 1;
+  background: #f8fafc;
+}
+
+.matches-list {
+  flex: 1;
+  padding: 24px;
+  max-width: 600px;
+}
+
+.matches-list h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.itinerary-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.itinerary-title h3 {
+  margin: 0;
+}
+
+.days-count {
+  background: #1e3a5f;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.match-item {
+  margin-bottom: 12px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.match-info {
+  flex: 1;
+}
+
+.travel-card {
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 8px 0 8px 0;
+  border-left: 4px solid #64748b;
+}
+
+.travel-card.feasibility-green {
+  background: linear-gradient(90deg, #f0fdf4 0%, #dcfce7 100%);
+  border-left-color: #22c55e;
+}
+
+.travel-card.feasibility-yellow {
+  background: linear-gradient(90deg, #fffbeb 0%, #fef3c7 100%);
+  border-left-color: #f59e0b;
+}
+
+.travel-card.feasibility-red {
+  background: linear-gradient(90deg, #fef2f2 0%, #fee2e2 100%);
+  border-left-color: #dc2626;
+}
+
+.travel-route {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.city-tag {
+  background: #1e3a5f;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.travel-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+
+.travel-line svg {
+  color: #64748b;
+}
+
+.travel-meta {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.travel-timing {
+  display: flex;
+  gap: 24px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.timing-label {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.timing-label strong {
+  color: #1e293b;
+}
+
+.map-panel {
+  width: 50%;
+  min-width: 400px;
+  border-left: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - var(--header-height));
+}
+
+.map-panel .map-view-container {
+  height: 100%;
+  padding: 0;
+}
+
+.map-panel .map-wrapper {
+  height: 100%;
+  border-radius: 0;
+}
+
+.empty-itinerary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 40px;
+}
+
+.empty-content {
+  text-align: center;
+  max-width: 450px;
+}
+
+.empty-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: #cbd5e1;
+}
+
+.empty-content h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.empty-content p {
+  color: #64748b;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.empty-content .hint {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* Error State */
+.error-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--header-height) - 200px);
+  padding: 40px;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 450px;
+  background: white;
+  padding: 48px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.error-content h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.error-content p {
+  color: #64748b;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.error-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-retry {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-retry:hover {
+  background: #b91c1c;
+  transform: scale(1.02);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1024px) {
+  .itinerary-body {
+    flex-direction: column;
+  }
+  
+  .map-panel {
+    width: 100%;
+    min-width: unset;
+    height: 400px;
+    position: relative;
+    border-left: none;
+    border-top: 1px solid #e2e8f0;
+  }
+  
+  .stats-row {
+    gap: 8px;
+  }
+  
+  .stat-card {
+    min-width: 90px;
+    padding: 12px 16px;
+  }
+  
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .trip-note {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.itinerary-body {
+  padding: 24px;
+}
+
+.ai-plan-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ai-day-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid #1e3a5f;
+}
+
+.ai-day-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.ai-day-num {
+  background: #1e3a5f;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.ai-day-date {
+  font-weight: 600;
+  color: #334155;
+}
+
+.ai-day-city {
+  color: #059669;
+  font-weight: 500;
+}
+
+.ai-day-transport {
+  background: #f0fdf4;
+  color: #059669;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.ai-day-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ai-day-section h4 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.ai-day-section ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #475569;
+  line-height: 1.8;
+}
+
+.ai-day-section ul li {
+  margin-bottom: 4px;
+}
+
+.ai-day-section ul li:last-child {
+  margin-bottom: 0;
+}
+
+.ai-day-matches {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ai-match-item {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}

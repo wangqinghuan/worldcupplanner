@@ -1,0 +1,62 @@
+.standings-page-full {
+  min-height: calc(100vh - var(--header-height));
+  background: #f8fafc;
+}
+
+.standings-header-full {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+  color: white;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.standings-header-full h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.standings-header-full .subtitle {
+  opacity: 0.9;
+}
+
+.standings-content-full {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.standings-grid-full {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.bracket-page {
+  min-height: calc(100vh - var(--header-height));
+  background: #f8fafc;
+}
+
+.bracket-header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+  color: white;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.bracket-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.bracket-header .subtitle {
+  opacity: 0.9;
+}
+
+.bracket-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  overflow-x: auto;
+}

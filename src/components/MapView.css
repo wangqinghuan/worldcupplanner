@@ -1,0 +1,109 @@
+.map-view-container {
+  padding: 40px 0;
+}
+
+.map-wrapper {
+  height: 500px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  border: 1px solid #ddd;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.map-popup {
+  padding: 5px;
+  text-align: center;
+}
+
+.map-popup strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.map-popup .popup-match {
+  font-weight: 600;
+  margin: 8px 0;
+  color: #1e3a5f;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  margin-top: 8px;
+}
+
+.route-legend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 12px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  margin-top: -12px;
+  border-radius: 0 0 12px 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.legend-item .dot {
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.legend-item .dot.flight {
+  background: #3b82f6;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #3b82f6 0px,
+    #3b82f6 5px,
+    transparent 5px,
+    transparent 10px
+  );
+}
+
+.legend-item .dot.drive {
+  background: #10b981;
+}
+
+.custom-number-icon {
+  background: transparent;
+}
+
+.number-marker {
+  width: 30px;
+  height: 30px;
+  background: #1e3a5f;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.map-empty {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border-radius: 12px;
+  color: #64748b;
+}

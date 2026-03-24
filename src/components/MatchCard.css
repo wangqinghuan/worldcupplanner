@@ -1,0 +1,241 @@
+.match-card-v4 {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  transition: all 0.2s ease;
+  margin-bottom: 12px;
+}
+
+.match-card-v4:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.match-card-v4.is-selected {
+  border-color: #E31B23;
+  background-color: #fff9f9;
+}
+
+.match-card-v4.compact {
+  padding: 12px 16px;
+  margin-bottom: 0;
+}
+
+.match-card-v4.compact .mc-date-box {
+  min-width: 70px;
+}
+
+.match-card-v4.compact .mc-day-num {
+  font-size: 1.5rem;
+}
+
+.match-card-v4.compact .mc-matchup {
+  font-size: 1rem;
+}
+
+.match-card-v4.compact .p-amt {
+  font-size: 1rem;
+}
+
+.match-card-v4.compact .mc-stadium {
+  font-size: 0.75rem;
+}
+
+/* DATE COLUMN */
+.mc-date-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+  text-align: center;
+}
+
+.mc-mon {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.mc-day-num {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #111827;
+  line-height: 1;
+  margin: 2px 0;
+}
+
+.mc-time-meta {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+/* INFO COLUMN */
+.mc-info-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mc-stage-group {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mc-matchup {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.5px;
+}
+
+.vs-label {
+  color: #d1d5db;
+  font-weight: 400;
+  margin: 0 8px;
+}
+
+/* PLAYOFF TEAM STYLES */
+.t-playoff {
+  position: relative;
+  color: #f59e0b;
+  cursor: help;
+}
+
+.playoff-badge {
+  font-size: 0.7em;
+  margin-left: 4px;
+}
+
+.playoff-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  min-width: 200px;
+}
+
+.playoff-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #1e293b;
+}
+
+.tooltip-header {
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 6px;
+}
+
+.tooltip-teams {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.tooltip-teams .seeded {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.tooltip-footer {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.mc-stadium {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ACTION COLUMN */
+.mc-action-box {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.mc-price-tag {
+  text-align: right;
+}
+
+.p-cat {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #9ca3af;
+}
+
+.p-amt {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #111827;
+}
+
+.btn-sel-v4 {
+  background-color: #002D72;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.btn-rem-v4 {
+  background-color: white;
+  color: #E31B23;
+  border: 1px solid #E31B23;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+@media (max-width: 850px) {
+  .match-card-v4 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .mc-date-box {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 8px;
+  }
+  .mc-action-box {
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid #f3f4f6;
+    padding-top: 12px;
+  }
+}

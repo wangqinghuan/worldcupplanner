@@ -1,0 +1,41 @@
+.matches-page-v6 {
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+.results-status-v6 {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1.1rem;
+  color: #4b5563;
+}
+
+.results-status-v6 strong {
+  color: #002D72;
+}
+
+.matches-card-grid-v6 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 20px;
+  padding-bottom: 80px;
+}
+
+.no-results-v6 {
+  grid-column: 1 / -1;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.no-results-v6 h3 {
+  font-size: 1.8rem;
+  color: #002D72;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 900px) {
+  .matches-card-grid-v6 {
+    grid-template-columns: 1fr;
+  }
+}
