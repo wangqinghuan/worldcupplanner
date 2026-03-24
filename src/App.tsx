@@ -36,7 +36,6 @@ function App() {
     <ItineraryProvider>
       <RoutesProvider>
         <div className="app-shell" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-          <div style={{background: 'red', color: 'white', padding: '10px', textAlign: 'center'}}>TEST HEADER</div>
           <Header 
             activeView={activeView} 
             onViewChange={(view) => setActiveView(view as View)} 
