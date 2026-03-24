@@ -70,12 +70,20 @@ Rules:
 - Only output valid JSON, start with { and end with }
 `;
 
-  const result = await model.generateContent(prompt);
-  const response = result.response.text();
-  
-  const jsonMatch = response.match(/\{[\s\S]*\}/);
-  if (jsonMatch) {
-    return JSON.parse(jsonMatch[0]);
+  try {
+    const result = await model.generateContent(prompt);
+    const response = result.response.text();
+    
+    const jsonMatch = response.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      return JSON.parse(jsonMatch[0]);
+    }
+    throw new Error("Failed to parse itinerary response");
+  } catch (error: unknown) {
+    const err = error as { code?: number; message?: string };
+    if (err.code === 503 || err.message?.includes('high demand')) {
+      throw new Error("Service is temporarily busy due to high demand. Please try again in a few moments.");
+    }
+    throw error;
   }
-  throw new Error("Failed to parse itinerary response");
 }

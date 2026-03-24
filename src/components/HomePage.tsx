@@ -1,14 +1,41 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { matches } from '../data/matches';
 import { teams } from '../data/teams';
 import { venues } from '../data/venues';
 import { type Group } from '../data/teams';
 import StandingsTable from './StandingsTable';
+import MatchCard from './MatchCard';
 import './HomePage.css';
 
 const HomePage: React.FC = () => {
-  const todayMatches = matches.filter(m => m.date === '2026-06-11').slice(0, 2);
   const groupStages: Group[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'];
+  
+  const [selectedCountry, setSelectedCountry] = useState('all');
+  const [selectedDate, setSelectedDate] = useState('all');
+  const [selectedStage, setSelectedStage] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredMatches = useMemo(() => {
+    return matches.filter(m => {
+      const countryMatch = selectedCountry === 'all' || m.country === selectedCountry;
+      const dateMatch = selectedDate === 'all' || m.date === selectedDate;
+      const stageMatch = selectedStage === 'all' || m.stage === selectedStage;
+      const search = searchQuery.toLowerCase();
+      const searchMatch = searchQuery === '' || 
+        m.homeTeam.toLowerCase().includes(search) || 
+        m.awayTeam.toLowerCase().includes(search) || 
+        m.city.toLowerCase().includes(search);
+      return countryMatch && dateMatch && stageMatch && searchMatch;
+    }).slice(0, 20);
+  }, [selectedCountry, selectedDate, selectedStage, searchQuery]);
+
+  const uniqueDates = useMemo(() => {
+    return [...new Set(matches.map(m => m.date))].sort();
+  }, []);
+
+  const uniqueStages = useMemo(() => {
+    return [...new Set(matches.map(m => m.stage))].sort();
+  }, []);
   
   const totalMatches = matches.length;
   const totalTeams = teams.length;
@@ -40,22 +67,22 @@ const HomePage: React.FC = () => {
       <section className="quick-nav">
         <div className="container">
           <div className="nav-cards">
-            <a href="#schedule" className="nav-card">
+            <a href="#/schedule" className="nav-card">
               <span className="nav-icon">📅</span>
               <span className="nav-title">Schedule</span>
               <span className="nav-desc">All 104 matches</span>
             </a>
-            <a href="#standings" className="nav-card">
+            <a href="#/standings" className="nav-card">
               <span className="nav-icon">📊</span>
               <span className="nav-title">Standings</span>
               <span className="nav-desc">Group rankings</span>
             </a>
-            <a href="#teams" className="nav-card">
+            <a href="#/schedule" className="nav-card">
               <span className="nav-icon">🚩</span>
               <span className="nav-title">Teams</span>
               <span className="nav-desc">48 nations</span>
             </a>
-            <a href="#venues" className="nav-card">
+            <a href="#/routes" className="nav-card">
               <span className="nav-icon">🏟️</span>
               <span className="nav-title">Venues</span>
               <span className="nav-desc">16 cities</span>
@@ -69,24 +96,40 @@ const HomePage: React.FC = () => {
           <h2 className="section-title">Match Schedule</h2>
           <p className="section-subtitle">Complete fixture list for the 2026 FIFA World Cup</p>
           
-          <div className="today-matches">
-            <h3>Opening Day - June 11, 2026</h3>
-            <div className="matches-preview">
-              {todayMatches.map(match => (
-                <div key={match.id} className="match-preview-card">
-                  <div className="match-stage">{match.stage}</div>
-                  <div className="match-teams">
-                    <span className="team">{match.homeTeam}</span>
-                    <span className="vs">vs</span>
-                    <span className="team">{match.awayTeam}</span>
-                  </div>
-                  <div className="match-info-row">
-                    <span className="time">{match.time} {match.timezone}</span>
-                    <span className="venue">{match.city}</span>
-                  </div>
-                </div>
+          <div className="filter-row">
+            <select value={selectedCountry} onChange={(e) => setSelectedCountry(e.target.value)}>
+              <option value="all">All Countries</option>
+              <option value="USA">USA</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Canada">Canada</option>
+            </select>
+            <select value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)}>
+              <option value="all">All Dates</option>
+              {uniqueDates.slice(0, 10).map(d => (
+                <option key={d} value={d}>{d}</option>
               ))}
-            </div>
+            </select>
+            <select value={selectedStage} onChange={(e) => setSelectedStage(e.target.value)}>
+              <option value="all">All Stages</option>
+              {uniqueStages.map(s => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
+            <input 
+              type="text" 
+              placeholder="Search teams..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          
+          <div className="matches-preview">
+            {filteredMatches.map(match => (
+              <MatchCard key={match.id} match={match} />
+            ))}
+            {filteredMatches.length === 0 && (
+              <p className="no-match">No matches found</p>
+            )}
           </div>
 
           <a href="#/schedule" className="view-all-btn">View Full Schedule →</a>

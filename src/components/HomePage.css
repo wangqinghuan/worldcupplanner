@@ -162,11 +162,46 @@
   text-align: center;
 }
 
+.filter-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-row select,
+.filter-row input {
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: white;
+  min-width: 140px;
+}
+
+.filter-row input {
+  flex: 1;
+  max-width: 200px;
+}
+
+.filter-row select:focus,
+.filter-row input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
 .matches-preview {
   display: flex;
   gap: 24px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.no-match {
+  text-align: center;
+  color: #64748b;
+  padding: 24px;
 }
 
 .match-preview-card {

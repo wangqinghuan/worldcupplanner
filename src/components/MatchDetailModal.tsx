@@ -54,10 +54,20 @@ const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, isSaved, onC
     }
   };
 
-  const copyToClipboard = () => {
+  const copyToClipboard = async () => {
     const text = `${match.homeTeam} vs ${match.awayTeam} - World Cup 2026\n${match.stage}\n${match.month} ${match.day}, ${match.time} ${match.timezone}\n${match.venue}, ${match.city}`;
-    navigator.clipboard.writeText(text);
-    alert('Copied to clipboard!');
+    try {
+      await navigator.clipboard.writeText(text);
+      alert('Copied to clipboard!');
+    } catch {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      alert('Copied to clipboard!');
+    }
   };
 
   const handleBackdropClick = (e: React.MouseEvent) => {

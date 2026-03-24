@@ -20,6 +20,7 @@ const Header: React.FC<HeaderProps> = ({ activeView, onViewChange }) => {
   const menuItems = [
     { id: 'schedule', label: 'Schedule' },
     { id: 'standings', label: 'Standings' },
+    { id: 'wiki', label: 'History' },
     { id: 'routes', label: 'Routes' },
     { id: 'itinerary', label: 'My Trip', badge: selectedMatches.length > 0 ? selectedMatches.length : undefined },
   ];

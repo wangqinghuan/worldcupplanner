@@ -57,6 +57,24 @@
   font-size: 0.85rem;
 }
 
+.footer-social {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-social a:hover {
+  color: #fff;
+}
+
 .footer-legal span {
   margin-left: 24px;
   cursor: pointer;

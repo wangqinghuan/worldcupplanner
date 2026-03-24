@@ -5,11 +5,12 @@ import SchedulePage from './components/SchedulePage';
 import StandingsPage from './components/StandingsPage';
 import ItineraryView from './components/ItineraryView';
 import RoutesPage from './components/RoutesPage';
+import WikiPage from './components/WikiPage';
 import { ItineraryProvider } from './context/ItineraryContext';
 import { RoutesProvider } from './context/RoutesContext';
 import './styles/globals.css';
 
-type View = 'schedule' | 'standings' | 'itinerary' | 'routes';
+type View = 'schedule' | 'standings' | 'itinerary' | 'routes' | 'wiki';
 
 function App() {
   const [activeView, setActiveView] = useState<View>('schedule');
@@ -24,6 +25,8 @@ function App() {
         return <ItineraryView />;
       case 'routes':
         return <RoutesPage onNavigate={(view) => setActiveView(view as View)} />;
+      case 'wiki':
+        return <WikiPage />;
       default:
         return <SchedulePage />;
     }
