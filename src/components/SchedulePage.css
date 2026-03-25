@@ -109,19 +109,150 @@
   margin-bottom: 24px;
 }
 
-@media (max-width: 768px) {
-  .hero-countdown {
-    padding: 24px 32px;
-  }
-  .countdown-number {
-    font-size: 2.5rem;
-  }
-  .countdown-separator {
-    font-size: 2rem;
-  }
-  .countdown-block {
-    min-width: 50px;
-  }
+.schedule-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #f8fafc;
+}
+
+.filter-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.filter-row input {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: #f9fafb;
+  font-size: 1rem;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.filter-row input:focus {
+  outline: none;
+  background-color: white;
+  border-color: #002D72;
+  box-shadow: 0 0 0 4px rgba(0, 45, 114, 0.1);
+}
+
+.filter-row select {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.results-count {
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.no-match {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+}
+
+.no-match h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.match-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.match-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.match-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.match-stage {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #002D72;
+  text-transform: uppercase;
+}
+
+.match-date {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.match-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.team-flag {
+  width: 36px;
+  height: 24px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.score {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #002D72;
+}
+
+.venue-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #64748b;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.venue-info svg {
+  width: 16px;
+  height: 16px;
 }
 
 @media (max-width: 768px) {
@@ -133,30 +264,40 @@
     font-size: 1rem;
   }
   
-  .countdown-ticket-row {
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 12px 16px;
+  .hero-countdown {
+    padding: 24px 32px;
   }
   
-  .ticket-number {
-    font-size: 1.5rem;
-  }
-  
-  .countdown-cards {
-    gap: 12px;
-  }
-  
-  .countdown-card {
-    min-width: 120px;
-    padding: 16px 20px;
-  }
-  
-  .card-number {
+  .countdown-number {
     font-size: 2.5rem;
+  }
+  
+  .countdown-separator {
+    font-size: 2rem;
+  }
+  
+  .countdown-block {
+    min-width: 50px;
+  }
+  
+  .schedule-content {
+    padding: 16px;
   }
   
   .matches-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .filter-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .match-teams {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .score {
+    font-size: 1.5rem;
   }
 }
