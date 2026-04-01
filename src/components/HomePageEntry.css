@@ -1,0 +1,97 @@
+.home-page-entry {
+  min-height: calc(100vh - 200px);
+  padding: 2rem 0;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+  color: white;
+  border-radius: 24px;
+  margin-bottom: 3rem;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+.entry-section {
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.entry-section h2 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.entry-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.entry-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.entry-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.entry-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.entry-card p {
+  color: var(--text-secondary);
+}
+
+.features-section {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding: 4rem 1rem;
+  margin-top: 2rem;
+}
+
+.feature {
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.feature h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.feature p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}

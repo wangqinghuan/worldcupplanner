@@ -33,6 +33,26 @@ const generateCalendarLink = (match: Match) => {
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${start}/${end}&location=${location}&details=${details}`;
 };
 
+const handleCalendarClick = (e: React.MouseEvent, match: Match) => {
+  e.preventDefault();
+  const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
+  const isIOS = /iPhone|iPad/i.test(navigator.userAgent);
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const calendarUrl = generateCalendarLink(match);
+  
+  if (!isMobile) {
+    window.open(calendarUrl, '_blank');
+    return;
+  }
+  
+  const modal = document.getElementById('calendar-modal');
+  if (modal) {
+    modal.style.display = 'flex';
+    modal.dataset.calendarUrl = calendarUrl;
+    modal.dataset.deviceType = isIOS ? 'ios' : isAndroid ? 'android' : 'other';
+  }
+};
+
 const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, isSaved, onClose, onToggleSave }) => {
   const venue = venues.find(v => v.id === match.venueId);
 
@@ -131,14 +151,16 @@ const MatchDetailModal: React.FC<MatchDetailModalProps> = ({ match, isSaved, onC
             {isSaved ? '❤️ Saved' : '🤍 Save Match'}
           </button>
           
-          <a 
-            href={generateCalendarLink(match)}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button 
             className="action-btn calendar"
+            title="Set Reminder"
+            onClick={(e) => handleCalendarClick(e, match)}
           >
-            📅 Add to Calendar
-          </a>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+          </button>
           
           <button className="action-btn share" onClick={handleShare}>
             📤 Share

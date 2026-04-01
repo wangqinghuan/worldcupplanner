@@ -72,7 +72,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 24px;
 }
 
 .countdown-block {
@@ -102,13 +102,6 @@
   margin-top: 8px;
 }
 
-.countdown-separator {
-  font-size: 3.5rem;
-  font-weight: 300;
-  opacity: 0.6;
-  margin-bottom: 24px;
-}
-
 .schedule-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -118,19 +111,18 @@
 
 .filter-row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 12px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .filter-row input {
-  grid-column: 1 / -1;
   width: 100%;
-  padding: 14px 20px;
+  padding: 12px 16px;
   border: 1px solid #e5e7eb;
-  border-radius: 12px;
+  border-radius: 8px;
   background-color: #f9fafb;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   box-sizing: border-box;
 }
@@ -175,7 +167,7 @@
 
 .matches-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
@@ -257,47 +249,84 @@
 
 @media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
   
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   .hero-countdown {
-    padding: 24px 32px;
+    padding: 16px 20px;
+  }
+  
+  .countdown-label {
+    font-size: 0.8rem;
+  }
+  
+  .countdown-date {
+    font-size: 1rem;
+    margin-bottom: 16px;
   }
   
   .countdown-number {
-    font-size: 2.5rem;
-  }
-  
-  .countdown-separator {
     font-size: 2rem;
   }
   
   .countdown-block {
-    min-width: 50px;
+    min-width: 40px;
+  }
+  
+  .countdown-unit {
+    font-size: 0.65rem;
+  }
+  
+  .countdown-timer {
+    gap: 12px;
   }
   
   .schedule-content {
-    padding: 16px;
+    padding: 12px;
   }
   
   .matches-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
   
   .filter-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  
+  .filter-row input {
+    grid-column: 1 / -1;
+  }
+  
+  .filter-row select {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .filter-row input {
+    padding: 10px 12px;
+    font-size: 0.85rem;
   }
   
   .match-teams {
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
   }
   
   .score {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+  }
+  
+  .match-card {
+    padding: 12px;
+  }
+  
+  .results-count {
+    font-size: 0.85rem;
   }
 }

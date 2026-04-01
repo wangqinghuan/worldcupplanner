@@ -229,6 +229,10 @@
   background: #3b82f6;
   border: none;
   color: white;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .action-btn.calendar:hover {

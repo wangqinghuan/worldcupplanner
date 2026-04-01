@@ -1,0 +1,197 @@
+.itinerary-page {
+  padding: 2rem 0;
+}
+
+.itinerary-page .back-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.itinerary-page .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.itinerary-page .page-header h1 {
+  font-size: 2rem;
+}
+
+.save-btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.itinerary-summary {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.summary-stats {
+  display: flex;
+  justify-content: space-around;
+}
+
+.summary-stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.city-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.city-group {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.city-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.city-number {
+  padding: 0.25rem 0.75rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.city-header h2 {
+  font-size: 1.75rem;
+}
+
+.city-matches,
+.city-transport,
+.city-stay,
+.city-things,
+.city-food,
+.city-cost {
+  margin-bottom: 1.5rem;
+}
+
+.city-matches h3,
+.city-transport h3,
+.city-stay h3,
+.city-things h3,
+.city-food h3,
+.city-cost h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.match-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: var(--bg-color);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.match-date {
+  font-weight: 600;
+  min-width: 80px;
+}
+
+.match-team {
+  flex: 1;
+}
+
+.match-time {
+  color: var(--text-secondary);
+}
+
+.city-transport p,
+.city-cost p {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.areas-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.area-tag {
+  padding: 0.25rem 0.75rem;
+  background: var(--bg-color);
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.city-things ul,
+.city-food ul {
+  list-style: none;
+  padding: 0;
+}
+
+.city-things li,
+.city-food li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.city-things li:last-child,
+.city-food li:last-child {
+  border-bottom: none;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+.buy-tickets-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.2s;
+}
+
+.buy-tickets-btn:hover {
+  transform: translateY(-2px);
+}

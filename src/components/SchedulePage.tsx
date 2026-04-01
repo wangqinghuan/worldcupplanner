@@ -7,7 +7,7 @@ import './SchedulePage.css';
 
 const SchedulePage: React.FC = () => {
   const today = useMemo(() => new Date(), []);
-  const kickoffDate = new Date('2026-06-11T20:00:00');
+  const kickoffDate = useMemo(() => new Date('2026-06-11T20:00:00'), []);
   
   const [timeLeft, setTimeLeft] = useState<{days: number; hours: number; minutes: number; seconds: number}>(() => {
     const diff = kickoffDate.getTime() - today.getTime();
@@ -93,17 +93,14 @@ const SchedulePage: React.FC = () => {
                 <span className="countdown-number">{timeLeft.days}</span>
                 <span className="countdown-unit">Days</span>
               </div>
-              <div className="countdown-separator">:</div>
               <div className="countdown-block">
                 <span className="countdown-number">{String(timeLeft.hours).padStart(2, '0')}</span>
                 <span className="countdown-unit">Hours</span>
               </div>
-              <div className="countdown-separator">:</div>
               <div className="countdown-block">
                 <span className="countdown-number">{String(timeLeft.minutes).padStart(2, '0')}</span>
                 <span className="countdown-unit">Minutes</span>
               </div>
-              <div className="countdown-separator">:</div>
               <div className="countdown-block">
                 <span className="countdown-number">{String(timeLeft.seconds).padStart(2, '0')}</span>
                 <span className="countdown-unit">Seconds</span>

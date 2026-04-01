@@ -1,0 +1,142 @@
+.match-selection-page {
+  padding: 2rem 0;
+}
+
+.match-selection-page .back-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.match-selection-page .page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.match-selection-page .page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.match-selection-page .page-header p {
+  color: var(--text-secondary);
+}
+
+.selection-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+}
+
+.filters select {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.selection-summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.generate-btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.generate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.matches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.match-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.match-item:hover {
+  background: var(--hover-bg);
+}
+
+.match-item.selected {
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid var(--primary-color);
+}
+
+.match-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.match-item.selected .match-checkbox {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.match-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.match-date {
+  font-weight: 600;
+}
+
+.match-teams {
+  font-size: 1rem;
+}
+
+.match-venue {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.match-stage {
+  padding: 0.25rem 0.75rem;
+  background: var(--bg-color);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}

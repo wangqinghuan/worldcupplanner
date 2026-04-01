@@ -1,0 +1,266 @@
+.team-route-detail {
+  padding: 1rem 0;
+}
+
+.team-route-detail .back-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.team-route-detail .page-header {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.team-route-detail .back-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.team-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.team-flag {
+  font-size: 1.5rem;
+}
+
+.team-header h1 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.route-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.route-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.route-right {
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+  align-self: start;
+}
+
+.group-stage {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+
+.group-stage h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.cities-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.city-card {
+  background: var(--bg-color);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 120px;
+}
+
+.city-card .city-name {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.city-card .city-date {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.arrow {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+
+.knockout-routes {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 16px;
+}
+
+.knockout-routes h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.route-note {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.knockout-routes .disclaimer {
+  color: #f97316;
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+.distance-comparison {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: var(--bg-color);
+  border-radius: 8px;
+}
+
+.distance-comparison .distance-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.distance-comparison .route-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.distance-comparison .route-distance {
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.distance-comparison .distance-diff {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+}
+
+.route-option {
+  background: var(--bg-color);
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.route-option:hover {
+  transform: translateY(-2px);
+}
+
+.route-option.selected {
+  border-color: var(--primary-color);
+}
+
+.route-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.route-header h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.route-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 20px;
+}
+
+.route-path {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.stop {
+  background: var(--card-bg);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stop-stage {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.stop-city {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.stop-opponent {
+  display: block;
+  font-size: 0.7rem;
+  color: #f97316;
+  margin-top: 0.25rem;
+}
+
+.generate-btn-small {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.generate-btn-small:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .route-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .route-right {
+    position: static;
+  }
+}

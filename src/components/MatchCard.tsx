@@ -29,6 +29,27 @@ const getCalendarUrl = (match: Match) => {
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(description)}`;
 };
 
+const handleCalendarClick = (e: React.MouseEvent, match: Match) => {
+  e.preventDefault();
+  const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
+  const isIOS = /iPhone|iPad/i.test(navigator.userAgent);
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const calendarUrl = getCalendarUrl(match);
+  
+  if (!isMobile) {
+    window.open(calendarUrl, '_blank');
+    return;
+  }
+  
+  // Show modal for mobile
+  const modal = document.getElementById('calendar-modal');
+  if (modal) {
+    modal.style.display = 'flex';
+    modal.dataset.calendarUrl = calendarUrl;
+    modal.dataset.deviceType = isIOS ? 'ios' : isAndroid ? 'android' : 'other';
+  }
+};
+
 const TeamName: React.FC<{ name: string }> = ({ name }) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const playoffInfo = isPlayoffTeam(name) ? getPlayoffInfo(name) : null;
@@ -69,7 +90,8 @@ const TeamName: React.FC<{ name: string }> = ({ name }) => {
 
 const MatchCard: React.FC<MatchCardProps> = ({ match, compact }) => {
   return (
-    <div className={`match-card-v4 ${compact ? 'compact' : ''}`}>
+    <>
+      <div className={`match-card-v4 ${compact ? 'compact' : ''}`}>
       <div className="mc-date-box">
         <div className="mc-mon">{match.month}</div>
         <div className="mc-day-num">{match.day}</div>
@@ -93,12 +115,87 @@ const MatchCard: React.FC<MatchCardProps> = ({ match, compact }) => {
 
       <div className="mc-action-box">
         {!compact && (
-          <a href={getCalendarUrl(match)} target="_blank" rel="noopener noreferrer" className="btn-sel-v4">
-            🔔 Add to Calendar
-          </a>
+          <button className="btn-sel-v4" title="Set Reminder" onClick={(e) => handleCalendarClick(e, match)}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+          </button>
         )}
       </div>
     </div>
+    
+    <div id="calendar-modal" className="calendar-modal-overlay" style={{display: 'none'}} onClick={(e) => {
+      if (e.target === e.currentTarget) e.currentTarget.style.display = 'none';
+    }}>
+      <div className="calendar-modal">
+        <div className="calendar-modal-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#002D72" strokeWidth="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+        </div>
+        <h3>Set Calendar Reminder</h3>
+        <p>Open in your calendar app?</p>
+        <div className="calendar-modal-btns">
+          <button className="modal-cancel" onClick={() => {
+            const m = document.getElementById('calendar-modal');
+            if (m) m.style.display = 'none';
+          }}>Cancel</button>
+          <button className="modal-confirm" onClick={() => {
+            const modal = document.getElementById('calendar-modal') as HTMLElement | null;
+            const url = modal?.dataset?.calendarUrl || '';
+            const deviceType = modal?.dataset?.deviceType || 'other';
+            
+            if (deviceType === 'ios') {
+              window.location.href = 'calshow:';
+              setTimeout(() => window.open(url, '_blank'), 500);
+            } else if (deviceType === 'android') {
+              window.location.href = 'intent://calendar.google.com/calendar/render?action=TEMPLATE#Intent;scheme=https;package=com.google.android.calendar;end';
+              setTimeout(() => window.open(url, '_blank'), 1000);
+            } else {
+              window.open(url, '_blank');
+            }
+            if (modal) modal.style.display = 'none';
+          }}>Open</button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="calendar-modal" className="calendar-modal-overlay" style={{display: 'none'}} onClick={(e) => {
+      if (e.target === e.currentTarget) e.currentTarget.style.display = 'none';
+    }}>
+      <div className="calendar-modal">
+        <div className="calendar-modal-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#002D72" strokeWidth="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+        </div>
+        <h3>Set Calendar Reminder</h3>
+        <p>Open in your calendar app?</p>
+        <div className="calendar-modal-btns">
+          <button className="modal-cancel" onClick={() => document.getElementById('calendar-modal')!.style.display = 'none'}>Cancel</button>
+          <button className="modal-confirm" onClick={() => {
+            const modal = document.getElementById('calendar-modal');
+            const url = modal?.dataset.calendarUrl || '';
+            const deviceType = modal?.dataset.deviceType || 'other';
+            
+            if (deviceType === 'ios') {
+              window.location.href = 'calshow:';
+              setTimeout(() => window.open(url, '_blank'), 500);
+            } else if (deviceType === 'android') {
+              window.location.href = `intent://calendar.google.com/calendar/render?action=TEMPLATE#Intent;scheme=https;package=com.google.android.calendar;end`;
+              setTimeout(() => window.open(url, '_blank'), 1000);
+            } else {
+              window.open(url, '_blank');
+            }
+            if (modal) modal.style.display = 'none';
+          }}>Open</button>
+        </div>
+      </div>
+    </div>
+    </>
   );
 };
 

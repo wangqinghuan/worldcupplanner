@@ -1,5 +1,4 @@
-import React, { useMemo, useState } from 'react';
-import { useItinerary } from '../context/ItineraryContext';
+import React, { useState } from 'react';
 import './Header.css';
 
 interface HeaderProps {
@@ -8,21 +7,13 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ activeView, onViewChange }) => {
-  const { selectedMatches } = useItinerary();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const daysToKickoff = useMemo(() => {
-    const today = new Date();
-    const kickoff = new Date('2026-06-11');
-    return Math.ceil((kickoff.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-  }, []);
-
   const menuItems = [
-    { id: 'schedule', label: 'Schedule' },
-    { id: 'standings', label: 'Standings' },
-    { id: 'wiki', label: 'History' },
-    { id: 'routes', label: 'Routes' },
-    { id: 'itinerary', label: 'My Trip', badge: selectedMatches.length > 0 ? selectedMatches.length : undefined },
+    { id: 'home', label: 'Home' },
+    { id: 'team-routes', label: 'By Team' },
+    { id: 'match-selection', label: 'By Matches' },
+    { id: 'routes-list', label: 'Explore' },
   ];
 
   const handleNavClick = (view: string) => {
@@ -33,9 +24,9 @@ const Header: React.FC<HeaderProps> = ({ activeView, onViewChange }) => {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a href="#/" className="brand" onClick={() => handleNavClick('schedule')}>
+        <a href="#/" className="brand" onClick={() => handleNavClick('home')}>
           <div className="logo-main">🏆</div>
-          <div className="logo-sub">WC26</div>
+          <div className="logo-sub">WC26 Planner</div>
         </a>
 
         <nav className="main-nav">
@@ -46,17 +37,11 @@ const Header: React.FC<HeaderProps> = ({ activeView, onViewChange }) => {
               onClick={() => handleNavClick(item.id)}
             >
               {item.label}
-              {item.badge && <span className="trip-badge">{item.badge}</span>}
             </button>
           ))}
         </nav>
 
         <div className="header-actions">
-          <div className="countdown">
-            <span className="days">{daysToKickoff > 0 ? daysToKickoff : 0}</span>
-            <span className="label">Days</span>
-          </div>
-          
           <button 
             className={`hamburger ${mobileMenuOpen ? 'is-open' : ''}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -78,7 +63,6 @@ const Header: React.FC<HeaderProps> = ({ activeView, onViewChange }) => {
               onClick={() => handleNavClick(item.id)}
             >
               {item.label}
-              {item.badge && <span className="trip-badge">{item.badge}</span>}
             </button>
           ))}
         </div>

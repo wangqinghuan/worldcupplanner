@@ -51,10 +51,12 @@
   border-top: 1px solid #333;
   padding-top: 32px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 24px;
   color: #666;
   font-size: 0.85rem;
+  flex-wrap: wrap;
 }
 
 .footer-social {
