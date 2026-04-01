@@ -29,12 +29,12 @@ export const teams: Team[] = [
   { id: 'mex', name: 'Mexico', shortName: 'MEX', flag: '🇲🇽', group: 'A', region: 'North America', fifaRank: 11, titles: 0, qualified: true },
   { id: 'rsa', name: 'South Africa', shortName: 'RSA', flag: '🇿🇦', group: 'A', region: 'Africa', fifaRank: 57, titles: 0, qualified: true },
   { id: 'kor', name: 'South Korea', shortName: 'KOR', flag: '🇰🇷', group: 'A', region: 'Asia', fifaRank: 24, titles: 0, qualified: true },
-  { id: 'playoff-d', name: 'UEFA Playoff D Winner', shortName: 'POD', flag: '🏆', group: 'A', region: 'Europe', titles: 0, qualified: false },
+  { id: 'bih', name: 'Bosnia and Herzegovina', shortName: 'BIH', flag: '🇧🇦', group: 'A', region: 'Europe', fifaRank: 55, titles: 0, qualified: true },
   
   { id: 'can', name: 'Canada', shortName: 'CAN', flag: '🇨🇦', group: 'B', region: 'North America', fifaRank: 35, titles: 0, qualified: true },
   { id: 'sui', name: 'Switzerland', shortName: 'SUI', flag: '🇨🇭', group: 'B', region: 'Europe', fifaRank: 15, titles: 0, qualified: true },
   { id: 'qat', name: 'Qatar', shortName: 'QAT', flag: '🇶🇦', group: 'B', region: 'Asia', fifaRank: 58, titles: 0, qualified: true },
-  { id: 'playoff-a', name: 'UEFA Playoff A Winner', shortName: 'POA', flag: '🏆', group: 'B', region: 'Europe', titles: 0, qualified: false },
+  { id: 'swe', name: 'Sweden', shortName: 'SWE', flag: '🇸🇪', group: 'B', region: 'Europe', fifaRank: 26, titles: 0, qualified: true },
   
   { id: 'bra', name: 'Brazil', shortName: 'BRA', flag: '🇧🇷', group: 'C', region: 'South America', fifaRank: 5, titles: 5, qualified: true },
   { id: 'mar', name: 'Morocco', shortName: 'MAR', flag: '🇲🇦', group: 'C', region: 'Africa', fifaRank: 13, titles: 0, qualified: true },
@@ -44,7 +44,7 @@ export const teams: Team[] = [
   { id: 'usa', name: 'United States', shortName: 'USA', flag: '🇺🇸', group: 'D', region: 'North America', fifaRank: 11, titles: 0, qualified: true },
   { id: 'par', name: 'Paraguay', shortName: 'PAR', flag: '🇵🇾', group: 'D', region: 'South America', fifaRank: 58, titles: 0, qualified: true },
   { id: 'aus', name: 'Australia', shortName: 'AUS', flag: '🇦🇺', group: 'D', region: 'Asia', fifaRank: 23, titles: 0, qualified: true },
-  { id: 'playoff-c', name: 'UEFA Playoff C Winner', shortName: 'POC', flag: '🏆', group: 'D', region: 'Europe', titles: 0, qualified: false },
+  { id: 'tur', name: 'Turkey', shortName: 'TUR', flag: '🇹🇷', group: 'D', region: 'Europe', fifaRank: 19, titles: 0, qualified: true },
   
   { id: 'ger', name: 'Germany', shortName: 'GER', flag: '🇩🇪', group: 'E', region: 'Europe', fifaRank: 16, titles: 4, qualified: true },
   { id: 'cuw', name: 'Curacao', shortName: 'CUW', flag: '🇨🇼', group: 'E', region: 'North America', fifaRank: 78, titles: 0, qualified: true },
@@ -54,7 +54,7 @@ export const teams: Team[] = [
   { id: 'ned', name: 'Netherlands', shortName: 'NED', flag: '🇳🇱', group: 'F', region: 'Europe', fifaRank: 7, titles: 0, qualified: true },
   { id: 'jpn', name: 'Japan', shortName: 'JPN', flag: '🇯🇵', group: 'F', region: 'Asia', fifaRank: 18, titles: 0, qualified: true },
   { id: 'tun', name: 'Tunisia', shortName: 'TUN', flag: '🇹🇳', group: 'F', region: 'Africa', fifaRank: 41, titles: 0, qualified: true },
-  { id: 'playoff-b', name: 'UEFA Playoff B Winner', shortName: 'POB', flag: '🏆', group: 'F', region: 'Europe', titles: 0, qualified: false },
+  { id: 'cze', name: 'Czech Republic', shortName: 'CZE', flag: '🇨🇿', group: 'F', region: 'Europe', fifaRank: 40, titles: 0, qualified: true },
   
   { id: 'bel', name: 'Belgium', shortName: 'BEL', flag: '🇧🇪', group: 'G', region: 'Europe', fifaRank: 3, titles: 0, qualified: true },
   { id: 'egy', name: 'Egypt', shortName: 'EGY', flag: '🇪🇬', group: 'G', region: 'Africa', fifaRank: 36, titles: 0, qualified: true },
@@ -69,7 +69,7 @@ export const teams: Team[] = [
   { id: 'fra', name: 'France', shortName: 'FRA', flag: '🇫🇷', group: 'I', region: 'Europe', fifaRank: 2, titles: 2, qualified: true },
   { id: 'sen', name: 'Senegal', shortName: 'SEN', flag: '🇸🇳', group: 'I', region: 'Africa', fifaRank: 20, titles: 0, qualified: true },
   { id: 'nor', name: 'Norway', shortName: 'NOR', flag: '🇳🇴', group: 'I', region: 'Europe', fifaRank: 47, titles: 0, qualified: true },
-  { id: 'playoff-2', name: 'Intercontinental Playoff 2 Winner', shortName: 'IC2', flag: '🏆', group: 'I', region: 'Asia', titles: 0, qualified: false },
+  { id: 'cod', name: 'DR Congo', shortName: 'COD', flag: '🇨🇩', group: 'I', region: 'Africa', fifaRank: 63, titles: 0, qualified: true },
   
   { id: 'arg', name: 'Argentina', shortName: 'ARG', flag: '🇦🇷', group: 'J', region: 'South America', fifaRank: 1, titles: 3, qualified: true },
   { id: 'aut', name: 'Austria', shortName: 'AUT', flag: '🇦🇹', group: 'J', region: 'Europe', fifaRank: 25, titles: 0, qualified: true },
@@ -79,7 +79,7 @@ export const teams: Team[] = [
   { id: 'por', name: 'Portugal', shortName: 'POR', flag: '🇵🇹', group: 'K', region: 'Europe', fifaRank: 6, titles: 0, qualified: true },
   { id: 'col', name: 'Colombia', shortName: 'COL', flag: '🇨🇴', group: 'K', region: 'South America', fifaRank: 12, titles: 0, qualified: true },
   { id: 'uzb', name: 'Uzbekistan', shortName: 'UZB', flag: '🇺🇿', group: 'K', region: 'Asia', fifaRank: 60, titles: 0, qualified: true },
-  { id: 'playoff-1', name: 'Intercontinental Playoff 1 Winner', shortName: 'IC1', flag: '🏆', group: 'K', region: 'Africa', titles: 0, qualified: false },
+  { id: 'irq', name: 'Iraq', shortName: 'IRQ', flag: '🇮🇶', group: 'K', region: 'Asia', fifaRank: 62, titles: 0, qualified: true },
   
   { id: 'eng', name: 'England', shortName: 'ENG', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', group: 'L', region: 'Europe', fifaRank: 4, titles: 1, qualified: true },
   { id: 'cro', name: 'Croatia', shortName: 'CRO', flag: '🇭🇷', group: 'L', region: 'Europe', fifaRank: 10, titles: 0, qualified: true },
